@@ -1,0 +1,166 @@
+{
+  "id": "cinematic_scene_1",
+  "type": "cinematic",
+  "title": "Tweety's Magical Garden",
+  
+  "backgroundImage": "/assets/bg/garden-sky.jpg",
+  "backgroundGradient": "linear-gradient(135deg, #FFD54F 0%, #FFB3D9 50%, #87CEEB 100%)",
+  "backgroundZoom": true,
+  "parallaxEnabled": true,
+  
+  "foregroundProps": [
+    {
+      "image": "/assets/props/tree-left.png",
+      "position": {
+        "left": "10%",
+        "bottom": "0%",
+        "width": "200px",
+        "height": "300px"
+      },
+      "parallaxSpeed": 0.6,
+      "animation": {
+        "x": [0, 5, 0],
+        "y": [0, -3, 0]
+      },
+      "transition": {
+        "duration": 4,
+        "repeat": "Infinity",
+        "ease": "easeInOut"
+      }
+    },
+    {
+      "image": "/assets/props/tree-right.png",
+      "position": {
+        "right": "10%",
+        "bottom": "0%",
+        "width": "200px",
+        "height": "300px"
+      },
+      "parallaxSpeed": 0.7,
+      "animation": {
+        "x": [0, -5, 0],
+        "y": [0, -3, 0]
+      },
+      "transition": {
+        "duration": 5,
+        "repeat": "Infinity",
+        "ease": "easeInOut"
+      }
+    },
+    {
+      "image": "/assets/props/cloud-1.png",
+      "position": {
+        "left": "20%",
+        "top": "15%",
+        "width": "150px",
+        "height": "80px"
+      },
+      "parallaxSpeed": 0.4,
+      "animation": {
+        "x": [0, 30, 0]
+      },
+      "transition": {
+        "duration": 8,
+        "repeat": "Infinity",
+        "ease": "linear"
+      }
+    }
+  ],
+  
+  "character": {
+    "parts": {
+      "head": {
+        "image": "/assets/char/tweety-head.png",
+        "offset": { "x": 0, "y": -80 },
+        "zIndex": 3
+      },
+      "body": {
+        "image": "/assets/char/tweety-body.png",
+        "offset": { "x": 0, "y": 0 },
+        "zIndex": 2
+      },
+      "leftArm": {
+        "image": "/assets/char/tweety-arm-left.png",
+        "offset": { "x": -40, "y": 20 },
+        "zIndex": 1
+      },
+      "rightArm": {
+        "image": "/assets/char/tweety-arm-right.png",
+        "offset": { "x": 40, "y": 20 },
+        "zIndex": 1
+      },
+      "eyes": {
+        "image": "/assets/char/tweety-eyes.png",
+        "offset": { "x": 0, "y": -60 },
+        "zIndex": 4
+      }
+    },
+    "width": "400px",
+    "height": "400px"
+  },
+  
+  "characterPosition": {
+    "x": "50%",
+    "y": "45%"
+  },
+  
+  "characterAnimation": {
+    "gestures": ["idle", "wave", "excited"],
+    "movement": {
+      "y": [0, -10, 0],
+      "rotate": [0, 2, -2, 0]
+    }
+  },
+  
+  "dialogue": [
+    {
+      "character": "Tweety",
+      "text": "Welcome to my magical garden! 🌸✨\n\nIt's so beautiful here, don't you think?",
+      "audio": "/assets/audio/dialogue-1.mp3",
+      "duration": 4000,
+      "autoAdvance": true
+    },
+    {
+      "character": "Tweety",
+      "text": "I've been waiting for you! There's something special I want to show you...",
+      "audio": "/assets/audio/dialogue-2.mp3",
+      "duration": 3500,
+      "autoAdvance": true
+    },
+    {
+      "character": "Tweety",
+      "text": "But first, let's play a little game! Are you ready?",
+      "audio": "/assets/audio/dialogue-3.mp3",
+      "duration": 3000,
+      "autoAdvance": false
+    }
+  ],
+  
+  "audio": "/assets/audio/scene-ambient.mp3",
+  "audioLoop": true,
+  
+  "choices": [
+    {
+      "text": "Yes! Let's play!",
+      "nextSceneId": "cinematic_scene_minigame"
+    },
+    {
+      "text": "Tell me more about this place first",
+      "nextSceneId": "cinematic_scene_2"
+    },
+    {
+      "text": "I want to explore on my own",
+      "nextSceneId": "cinematic_scene_explore"
+    }
+  ],
+  
+  "miniGame": {
+    "title": "Catch the Falling Stars",
+    "description": "Click the stars as they fall!",
+    "instructions": "Click the button to score points. Reach 10 points to win!",
+    "buttonText": "⭐ Click Me! ⭐",
+    "targetScore": 10,
+    "duration": 30
+  }
+}
+

@@ -1,0 +1,72 @@
+{
+  "scene_1": {
+    "id": "scene_1",
+    "video": "/assets/videos/intro1.mov",
+    "choices": [
+      {
+        "label": "Courage",
+        "next": "scene_2"
+      },
+      {
+        "label": "Believing in yourself",
+        "next": "scene_3"
+      }
+    ]
+  },
+  "scene_2": {
+    "id": "path-2",
+    "video": "/assets/videos/path-2.mov",
+    "choices": [
+      {
+        "label": "Save Tweety",
+        "next": "end-3"
+      },
+      {
+        "label": "Save the forest",
+        "next": "end-4"
+      }
+    ]
+  },
+  "end-3": {
+    "id": "end-3",
+    "video": "/assets/videos/end 3.mov",
+    "isEnding": true,
+    "checkpoint": "scene_2",
+    "choices": []
+  },
+  "end-4": {
+    "id": "end-4",
+    "video": "/assets/videos/end-4.mov",
+    "isEnding": true,
+    "checkpoint": "scene_2",
+    "choices": []
+  },
+  "scene_3": {
+    "id": "scene_3",
+    "video": "/assets/videos/path-self.mov",
+    "choices": [
+      {
+        "label": "Go back",
+        "next": "ending-1"
+      },
+      {
+        "label": "Fight the evil magic",
+        "next": "ending-2"
+      }
+    ]
+  },
+  "ending-1": {
+    "id": "ending-1",
+    "video": "/assets/videos/ending1.mov",
+    "choices": [],
+    "isEnding": true,
+    "checkpoint": "scene_3"
+  },
+  "ending-2": {
+    "id": "ending-2",
+    "video": "/assets/videos/ending-2-.mov",
+    "choices": [],
+    "isEnding": true,
+    "checkpoint": "scene_3"
+  }
+}

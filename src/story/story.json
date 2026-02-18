@@ -1,0 +1,276 @@
+{
+  "requiredWins": 2,
+  "startSceneId": "scene_1",
+  "scenes": {
+    "scene_1": {
+      "id": "scene_1",
+      "type": "story",
+      "text": "Welcome to Tweety's Adventure! 🐦✨\n\nYou're about to embark on a magical journey filled with choices, mini-games, and surprises!",
+      "backgroundImage": "/assets/img/scene1-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-welcome.json",
+      "audio": "/assets/audio/scene1.mp3",
+      "choices": [
+        {
+          "text": "Let's begin!",
+          "nextSceneId": "scene_2"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "scene_2": {
+      "id": "scene_2",
+      "type": "story",
+      "text": "Tweety is flying through a beautiful sky filled with fluffy clouds. Suddenly, hearts start falling from the sky! 💕\n\nCan you help Tweety catch them?",
+      "backgroundImage": "/assets/img/scene2-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-flying.json",
+      "audio": "/assets/audio/scene2.mp3",
+      "choices": [
+        {
+          "text": "Yes! Let's catch hearts!",
+          "nextSceneId": "minigame_1"
+        },
+        {
+          "text": "Maybe later...",
+          "nextSceneId": "scene_3"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "scene_3": {
+      "id": "scene_3",
+      "type": "story",
+      "text": "Tweety continues flying and discovers a mysterious puzzle floating in the clouds! 🧩\n\nIt looks like it needs to be solved...",
+      "backgroundImage": "/assets/img/scene3-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-curious.json",
+      "audio": "/assets/audio/scene3.mp3",
+      "choices": [
+        {
+          "text": "Let's solve the puzzle!",
+          "nextSceneId": "minigame_2"
+        },
+        {
+          "text": "Skip this one",
+          "nextSceneId": "scene_4"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "scene_4": {
+      "id": "scene_4",
+      "type": "story",
+      "text": "Tweety finds a magical memory game! 🎴\n\nMatch the pairs to unlock special powers!",
+      "backgroundImage": "/assets/img/scene4-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-excited.json",
+      "audio": "/assets/audio/scene4.mp3",
+      "choices": [
+        {
+          "text": "Play the memory game!",
+          "nextSceneId": "minigame_3"
+        },
+        {
+          "text": "Continue the story",
+          "nextSceneId": "scene_5"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "scene_5": {
+      "id": "scene_5",
+      "type": "story",
+      "text": "You've made it far in Tweety's adventure! 🌟\n\nLet's see if you've won enough games to unlock something special...",
+      "backgroundImage": "/assets/img/scene5-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-happy.json",
+      "audio": "/assets/audio/scene5.mp3",
+      "choices": [
+        {
+          "text": "Check my progress!",
+          "nextSceneId": "gift_check"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "minigame_1": {
+      "id": "minigame_1",
+      "type": "minigame",
+      "gameType": "catchHearts",
+      "text": "Catch the falling hearts! Click or tap them before they disappear!",
+      "backgroundImage": "/assets/img/minigame-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-playing.json",
+      "winSceneId": "scene_win_1",
+      "loseSceneId": "scene_lose_1"
+    },
+    "minigame_2": {
+      "id": "minigame_2",
+      "type": "minigame",
+      "gameType": "simplePuzzle",
+      "text": "Drag and drop the pieces to complete the puzzle!",
+      "backgroundImage": "/assets/img/minigame-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-thinking.json",
+      "winSceneId": "scene_win_2",
+      "loseSceneId": "scene_lose_2"
+    },
+    "minigame_3": {
+      "id": "minigame_3",
+      "type": "minigame",
+      "gameType": "matchPairs",
+      "text": "Flip the cards and match the pairs! Remember their positions!",
+      "backgroundImage": "/assets/img/minigame-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-concentrating.json",
+      "winSceneId": "scene_win_3",
+      "loseSceneId": "scene_lose_3"
+    },
+    "scene_win_1": {
+      "id": "scene_win_1",
+      "type": "story",
+      "text": "Amazing! You caught all the hearts! 💕✨\n\nTweety is so happy! You earned a win!",
+      "backgroundImage": "/assets/img/win-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-celebrating.json",
+      "audio": "/assets/audio/win.mp3",
+      "choices": [
+        {
+          "text": "Continue",
+          "nextSceneId": "scene_3"
+        }
+      ],
+      "nextSceneId": null,
+      "awardsWin": true
+    },
+    "scene_lose_1": {
+      "id": "scene_lose_1",
+      "type": "story",
+      "text": "Oh no! Some hearts got away! 😢\n\nBut don't worry, Tweety still loves you! Try again if you want!",
+      "backgroundImage": "/assets/img/lose-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-sad.json",
+      "audio": "/assets/audio/lose.mp3",
+      "choices": [
+        {
+          "text": "Try again",
+          "nextSceneId": "minigame_1"
+        },
+        {
+          "text": "Continue anyway",
+          "nextSceneId": "scene_3"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "scene_win_2": {
+      "id": "scene_win_2",
+      "type": "story",
+      "text": "Brilliant! You solved the puzzle! 🧩🎉\n\nAnother win for you!",
+      "backgroundImage": "/assets/img/win-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-celebrating.json",
+      "audio": "/assets/audio/win.mp3",
+      "choices": [
+        {
+          "text": "Continue",
+          "nextSceneId": "scene_4"
+        }
+      ],
+      "nextSceneId": null,
+      "awardsWin": true
+    },
+    "scene_lose_2": {
+      "id": "scene_lose_2",
+      "type": "story",
+      "text": "The puzzle was tricky! 🧩\n\nThat's okay, you can try again or move on!",
+      "backgroundImage": "/assets/img/lose-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-encouraging.json",
+      "audio": "/assets/audio/lose.mp3",
+      "choices": [
+        {
+          "text": "Try again",
+          "nextSceneId": "minigame_2"
+        },
+        {
+          "text": "Continue",
+          "nextSceneId": "scene_4"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "scene_win_3": {
+      "id": "scene_win_3",
+      "type": "story",
+      "text": "Perfect memory! You matched all the pairs! 🎴🌟\n\nYou're doing great!",
+      "backgroundImage": "/assets/img/win-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-celebrating.json",
+      "audio": "/assets/audio/win.mp3",
+      "choices": [
+        {
+          "text": "Continue",
+          "nextSceneId": "scene_5"
+        }
+      ],
+      "nextSceneId": null,
+      "awardsWin": true
+    },
+    "scene_lose_3": {
+      "id": "scene_lose_3",
+      "type": "story",
+      "text": "Almost there! The memory game was challenging! 🎴\n\nKeep going!",
+      "backgroundImage": "/assets/img/lose-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-encouraging.json",
+      "audio": "/assets/audio/lose.mp3",
+      "choices": [
+        {
+          "text": "Try again",
+          "nextSceneId": "minigame_3"
+        },
+        {
+          "text": "Continue",
+          "nextSceneId": "scene_5"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "gift_check": {
+      "id": "gift_check",
+      "type": "gift",
+      "text": "Checking your progress...",
+      "backgroundImage": "/assets/img/gift-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-excited.json"
+    },
+    "gift_unlocked": {
+      "id": "gift_unlocked",
+      "type": "story",
+      "text": "🎉 CONGRATULATIONS! 🎉\n\nYou've unlocked the special gift!",
+      "backgroundImage": "/assets/img/gift-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-celebrating.json",
+      "audio": "/assets/audio/gift-unlocked.mp3",
+      "choices": [
+        {
+          "text": "View gift",
+          "nextSceneId": "gift_screen"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "gift_locked": {
+      "id": "gift_locked",
+      "type": "story",
+      "text": "You're doing great, but you need to win more mini-games to unlock the gift! 🎮\n\nKeep playing and come back!",
+      "backgroundImage": "/assets/img/gift-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-encouraging.json",
+      "audio": "/assets/audio/gift-locked.mp3",
+      "choices": [
+        {
+          "text": "Go back and play more",
+          "nextSceneId": "scene_2"
+        }
+      ],
+      "nextSceneId": null
+    },
+    "gift_screen": {
+      "id": "gift_screen",
+      "type": "gift",
+      "text": "Here's your special gift!",
+      "giftImage": "/assets/img/gift.jpg",
+      "giftCaption": "A special gift for an amazing friend! 💝",
+      "backgroundImage": "/assets/img/gift-bg.jpg",
+      "lottieAnimation": "/assets/lottie/tweety-celebrating.json",
+      "audio": "/assets/audio/gift-screen.mp3"
+    }
+  }
+}
+
