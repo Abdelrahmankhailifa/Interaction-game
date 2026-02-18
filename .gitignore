@@ -1,4 +1,4 @@
-# Dependencies
+﻿# Dependencies
 node_modules/
 /.pnp
 .pnp.js
@@ -35,11 +35,3 @@ next-env.d.ts
 
 # Large raw assets (videos, source images)
 /stuff/
-
-# Videos and audio (large files)
-*.mov
-*.mp4
-*.mp3
-*.wav
-*.webm
-/public/assets/audio/
