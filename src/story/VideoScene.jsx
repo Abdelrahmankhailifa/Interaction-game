@@ -1,21 +1,16 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useVideoStoryEngine } from './VideoStoryEngine';
 
-/**
- * Plays the current video scene and shows branching choices over the video.
- * When a choice is clicked, it immediately switches to the next scene's video.
- */
 export default function VideoScene() {
   const { currentScene, goToScene, restart } = useVideoStoryEngine();
   const videoRef = useRef(null);
 
+  const [hasEnded, setHasEnded] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isFading, setIsFading] = useState(false);
-  const [hasEnded, setHasEnded] = useState(false);
 
-  // Reset state when the scene changes
   useEffect(() => {
     setIsLoading(true);
     setIsFading(true);
@@ -25,67 +20,26 @@ export default function VideoScene() {
     return () => clearTimeout(timer);
   }, [currentScene?.id]);
 
-  const handleEnded = useCallback(() => {
-    setHasEnded(true);
-  }, []);
-
-  const handleLoadedData = useCallback(() => {
+  const handleLoaded = () => {
     setIsLoading(false);
-  }, []);
+    videoRef.current?.play();
+  };
 
-  const handleWaiting = useCallback(() => {
-    setIsLoading(true);
-  }, []);
+  const handleEnded = () => {
+    setHasEnded(true);
+  };
 
-  const handleChoiceClick = useCallback(
-    (nextId) => {
-      // Immediately switch to the next scene's video
-      if (videoRef.current) {
-        try {
-          videoRef.current.pause();
-        } catch (e) {
-          // ignore
-        }
-      }
-      goToScene(nextId);
-    },
-    [goToScene]
-  );
+  const handleChoiceClick = (nextId) => {
+    goToScene(nextId);
+  };
 
-  const handleSkip = useCallback(() => {
+  const handleSkip = () => {
     if (videoRef.current) {
       videoRef.current.currentTime = videoRef.current.duration;
     }
-  }, []);
+  };
 
-  const handleRestart = useCallback(() => {
-    if (videoRef.current) {
-      try { videoRef.current.pause(); } catch (e) { /* ignore */ }
-    }
-    restart();
-  }, [restart]);
-
-  const handleCheckpoint = useCallback(() => {
-    if (videoRef.current) {
-      try { videoRef.current.pause(); } catch (e) { /* ignore */ }
-    }
-    if (currentScene?.checkpoint) {
-      goToScene(currentScene.checkpoint);
-    }
-  }, [currentScene, goToScene]);
-
-  const handleVideoError = useCallback((e) => {
-    console.error('Video error:', e);
-    setIsLoading(false);
-  }, []);
-
-  if (!currentScene) {
-    return (
-      <div className="story-container">
-        <p>Video scene not found.</p>
-      </div>
-    );
-  }
+  if (!currentScene) return <div>Scene not found</div>;
 
   const choices = currentScene.choices ?? [];
   const isEnding = currentScene.isEnding === true;
@@ -93,21 +47,16 @@ export default function VideoScene() {
   return (
     <div className="story-container">
       <div className={`video-wrapper ${isFading ? 'fade-in' : ''}`}>
+
         <video
           ref={videoRef}
-          src={currentScene.video}
-          autoPlay
-          controls={false}
-          playsInline
-          onEnded={handleEnded}
-          onLoadedData={handleLoadedData}
-          onWaiting={handleWaiting}
-          onCanPlay={handleLoadedData}
-          onError={handleVideoError}
+          src={currentScene.videoUrl}
           className="story-video"
-        >
-          Your browser does not support the video tag.
-        </video>
+          onLoadedData={handleLoaded}
+          onEnded={handleEnded}
+          playsInline
+          preload="auto"
+        />
 
         {isLoading && (
           <div className="video-overlay loading">
@@ -115,9 +64,8 @@ export default function VideoScene() {
           </div>
         )}
 
-        {/* Regular branching choices */}
         {choices.length > 0 && hasEnded && (
-          <div className="video-overlay choices-overlay choices-slide-in">
+          <div className="video-overlay choices-overlay">
             <div className="choices-container">
               {choices.map((choice) => (
                 <button
@@ -132,28 +80,34 @@ export default function VideoScene() {
           </div>
         )}
 
-        {/* Skip button (only on scenes with choices, while still playing) */}
         {choices.length > 0 && !hasEnded && (
           <button className="skip-button" onClick={handleSkip}>
             Skip ⏭
           </button>
         )}
 
-        {/* Ending buttons: Restart or Go Back to checkpoint */}
         {isEnding && hasEnded && (
-          <div className="video-overlay choices-overlay choices-slide-in">
+          <div className="video-overlay choices-overlay">
             <div className="choices-container">
-              <button className="choice-button ending-button" onClick={handleRestart}>
+              <button
+                className="choice-button ending-button"
+                onClick={restart}
+              >
                 🔄 Restart the whole story
               </button>
+
               {currentScene.checkpoint && (
-                <button className="choice-button ending-button" onClick={handleCheckpoint}>
-                  ↩ Go back to the last choice
+                <button
+                  className="choice-button ending-button"
+                  onClick={() => goToScene(currentScene.checkpoint)}
+                >
+                  ↩ Go back to last choice
                 </button>
               )}
             </div>
           </div>
         )}
+
       </div>
     </div>
   );

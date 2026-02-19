@@ -1,7 +1,7 @@
 {
   "scene_1": {
     "id": "scene_1",
-    "video": "/assets/videos/intro1.mov",
+    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/intro.mp4.mov",
     "choices": [
       {
         "label": "Courage",
@@ -36,7 +36,7 @@
   },
   "end-4": {
     "id": "end-4",
-    "video": "/assets/videos/end-4.mov",
+    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/Ending%204.mp4",
     "isEnding": true,
     "checkpoint": "scene_2",
     "choices": []
