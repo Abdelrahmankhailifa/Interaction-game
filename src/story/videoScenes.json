@@ -1,7 +1,7 @@
 {
-  "intro": {
-    "id": "intro",
-    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/path-2.mov",
+  "scene_1": {
+    "id": "scene_1",
+    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/intro.mp4.mov",
     "choices": [
       {
         "label": "Courage",
