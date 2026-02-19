@@ -12,30 +12,25 @@ import scenesJson from './videoScenes.json';
  */
 
 /**
- * @typedef {{ id: SceneId; video: string; choices: SceneChoice[] }} SceneData
+ * @typedef {{
+ *   id: SceneId;
+ *   videoUrl: string;
+ *   choices: SceneChoice[];
+ *   isEnding?: boolean;
+ *   checkpoint?: SceneId;
+ * }} SceneData
  */
 
 /**
  * @typedef {Record<SceneId, SceneData>} SceneMap
  */
 
-/**
- * @typedef {{
- *   scenes: SceneMap;
- *   currentSceneId: SceneId;
- *   currentScene: SceneData;
- *   goToScene: (id: SceneId) => void;
- *   restart: () => void;
- * }} VideoStoryEngineContextValue
- */
-
 const VideoStoryEngineContext = createContext(undefined);
 
-/**
- * @param {{ initialSceneId?: SceneId; children: React.ReactNode }} props
- */
-export function VideoStoryEngineProvider({ initialSceneId = 'scene_1', children }) {
-  /** @type {SceneMap} */
+export function VideoStoryEngineProvider({
+  initialSceneId = 'intro',   // 🔥 IMPORTANT FIX
+  children
+}) {
   const scenes = useMemo(() => scenesJson, []);
 
   const [currentSceneId, setCurrentSceneId] = useState(initialSceneId);
@@ -43,7 +38,7 @@ export function VideoStoryEngineProvider({ initialSceneId = 'scene_1', children 
   const goToScene = useCallback(
     (id) => {
       if (!scenes[id]) {
-        console.warn(`Video scene "${id}" not found in videoScenes.json`);
+        console.warn(`Scene "${id}" not found in videoScenes.json`);
         return;
       }
       setCurrentSceneId(id);
@@ -57,7 +52,6 @@ export function VideoStoryEngineProvider({ initialSceneId = 'scene_1', children 
 
   const currentScene = scenes[currentSceneId];
 
-  /** @type {VideoStoryEngineContextValue} */
   const value = {
     scenes,
     currentSceneId,
@@ -80,5 +74,3 @@ export function useVideoStoryEngine() {
   }
   return ctx;
 }
-
-
