@@ -1,21 +1,21 @@
 {
-  "scene_1": {
-    "id": "scene_1",
+  "intro": {
+    "id": "intro",
     "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/intro.mp4.mov",
     "choices": [
       {
         "label": "Courage",
-        "next": "scene_2"
+        "next": "path-2"
       },
       {
         "label": "Believing in yourself",
-        "next": "scene_3"
+        "next": "path-1"
       }
     ]
   },
-  "scene_2": {
+  "path-2": {
     "id": "path-2",
-    "video": "/assets/videos/path-2.mov",
+    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/path-2.mov",
     "choices": [
       {
         "label": "Save Tweety",
@@ -29,21 +29,21 @@
   },
   "end-3": {
     "id": "end-3",
-    "video": "/assets/videos/end 3.mov",
+    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/ending%203.mov",
     "isEnding": true,
-    "checkpoint": "scene_2",
+    "checkpoint": "path-2",
     "choices": []
   },
   "end-4": {
     "id": "end-4",
     "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/Ending%204.mp4",
     "isEnding": true,
-    "checkpoint": "scene_2",
+    "checkpoint": "path-2",
     "choices": []
   },
-  "scene_3": {
-    "id": "scene_3",
-    "video": "/assets/videos/path-self.mov",
+  "path-1": {
+    "id": "path-1",
+    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/Ending%204.mp4",
     "choices": [
       {
         "label": "Go back",
@@ -57,16 +57,16 @@
   },
   "ending-1": {
     "id": "ending-1",
-    "video": "/assets/videos/ending1.mov",
+    "videoUrl": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/ending%201.mov",
     "choices": [],
     "isEnding": true,
-    "checkpoint": "scene_3"
+    "checkpoint": "path-1"
   },
   "ending-2": {
     "id": "ending-2",
-    "video": "/assets/videos/ending-2-.mov",
+    "video": "https://pub-4f51baf8519b4a7a833233ff27c67fe2.r2.dev/ending%202.mov",
     "choices": [],
     "isEnding": true,
-    "checkpoint": "scene_3"
+    "checkpoint": "path-1"
   }
 }
